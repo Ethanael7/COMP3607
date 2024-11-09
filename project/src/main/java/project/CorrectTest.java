@@ -1,3 +1,4 @@
+package project;
 public class CorrectTest implements TestStrategy{
 
     @Override TestResult runTest(JavaFile javaFile, TestData testData){
