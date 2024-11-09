@@ -5,5 +5,12 @@ public class TestSuite {
     public void setTestStrategy(TestStrategy testStrategy){
         this.testStrategy = testStrategy;
     }
-    public
+
+    public TestResult performTest(JavaFile javaFile, TestData testData){
+        if(testStrategy != null){
+            return testStrategy.runTest(javaFile, testData);
+        }else{
+            throw new IllegalStateException("No test Strategy set");
+        }
+    }
 }

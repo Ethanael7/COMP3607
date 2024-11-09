@@ -12,6 +12,6 @@ public class SubmissionHandler {
 
     public void runAllTests(JavaFile javaFile, TestData testData){
         testSuite.setTestStrategy(new CorrectTest());
-        TestResult correctTestResult = testSuite.p
+        TestResult correctTestResult = testSuite.performTest(javaFile, testData);
     }
 }
