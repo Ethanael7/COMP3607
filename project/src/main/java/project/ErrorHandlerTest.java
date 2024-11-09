@@ -10,7 +10,7 @@ public class ErrorHandlerTest implements TestStrategy{
     
     private TestResult checkForErrorMessages(JavaFile javaFile, List<String> invalidInputs) {
         TestResult result = new TestResult();
-        result.setSuccess(true); // Assume it handles errors properly
+        result.setSuccess(true); 
         result.setMessage("Error handling test passed for " + javaFile.getFileName());
         return result;
     }
