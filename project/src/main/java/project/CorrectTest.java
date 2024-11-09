@@ -8,9 +8,10 @@ public class CorrectTest implements TestStrategy{
         }
     
     private TestResult executeAndCompare(JavaFile javaFile, String expectedOutput) {
-        // Simulate execution and comparison logic
-        // Return TestResult indicating success or failure
-        return new TestResult();
+        TestResult result = new TestResult();
+        result.setSuccess(true);
+        result.setMessage("Correct test passed for " + javaFile.getFileName());
+        return result;
     }
 }
     

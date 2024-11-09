@@ -6,6 +6,12 @@ public class TestData {
     private List<String> invalidInputs;
     private List<String> boundaryValues;
 
+    public TestData(String expectedOutput, List<String> invalidInputs, List<String> boundaryValues) {
+        this.expectedOutput = expectedOutput;
+        this.invalidInputs = invalidInputs;
+        this.boundaryValues = boundaryValues;
+    }
+
     public String getExpectedOutput() {
         return expectedOutput;
     }
@@ -17,7 +23,7 @@ public class TestData {
     public List<String> getBoundaryValues() {
         return boundaryValues;
     }
-
-    // Other attributes and methods
 }
+
+    
 
