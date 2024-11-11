@@ -1,5 +1,5 @@
 package project;
-public class CorrectTest implements TestStrategy{
+public class ChatBotGeneratorTester implements TestStrategy{
 
     @Override
         public TestResult runTest(JavaFile javaFile, TestData testData){

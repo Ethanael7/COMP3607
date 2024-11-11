@@ -12,17 +12,17 @@ public class SubmissionHandler {
 
     public void runAllTests(JavaFile javaFile, TestData testData) {
         
-        testSuite.setTestStrategy(new CorrectTest());
+        testSuite.setTestStrategy(new ChatBotGeneratorTester());
         TestResult correctnessResult = testSuite.performTest(javaFile, testData);
         System.out.println(correctnessResult.getMessage());
 
        
-        testSuite.setTestStrategy(new ErrorHandlerTest());
+        testSuite.setTestStrategy(new ChatBotSimilationTester());
         TestResult errorHandlingResult = testSuite.performTest(javaFile, testData);
         System.out.println(errorHandlingResult.getMessage());
 
         
-        testSuite.setTestStrategy(new BoundaryTest());
+        testSuite.setTestStrategy(new ChatBotPlatformTester());
         TestResult boundaryResult = testSuite.performTest(javaFile, testData);
         System.out.println(boundaryResult.getMessage());
 

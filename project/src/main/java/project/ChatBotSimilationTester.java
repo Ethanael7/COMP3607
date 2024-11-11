@@ -2,7 +2,7 @@ package project;
 
 import java.util.List;
 
-public class ErrorHandlerTest implements TestStrategy{
+public class ChatBotSimilationTester implements TestStrategy{
     @Override
     public TestResult runTest(JavaFile javaFile, TestData testData) {
         return checkForErrorMessages(javaFile, testData.getInvalidInputs());
