@@ -1,16 +1,21 @@
 package project;
-public class TestSuite {
-    private TestStrategy testStrategy;
 
-    public void setTestStrategy(TestStrategy testStrategy){
-        this.testStrategy = testStrategy;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestSuite {
+    private List<TestStrategy> tests = new ArrayList<>();
+
+    public void addTest(TestStrategy test) {
+        tests.add(test);
     }
 
-    public TestResult performTest(JavaFile javaFile, TestData testData){
-        if(testStrategy != null){
-            return testStrategy.runTest(javaFile, testData);
-        }else{
-            throw new IllegalStateException("No test Strategy set");
+    public List<TestResult> runTests(ChatBot bot) {
+        List<TestResult> results = new ArrayList<>();
+        for (TestStrategy test : tests) {
+            results.add(test.runTest(bot));
         }
+        return results;
     }
 }
+
