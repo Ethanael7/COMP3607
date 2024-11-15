@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubmissionHandler {
+    private ChatBotPlatformTest platformTest;
     private ScoreCalculator scoreCalculator;
     private ReportGenerator reportGenerator;
 
     public SubmissionHandler() {
+        this.platformTest = new ChatBotPlatformTest();
         this.scoreCalculator = new ScoreCalculator();
         this.reportGenerator = new ReportGenerator();
     }
@@ -17,7 +19,7 @@ public class SubmissionHandler {
         List<TestResult> chatBotResults = runTests(bot, getChatBotTests());
         printTestResults(chatBotResults);
 
-        List<TestResult> platformResults = runTests(platform, getPlatformTests());
+        List<TestResult> platformResults = runTests(platformTest, getPlatformTests());
         printTestResults(platformResults);
 
         int totalChatBotScore = scoreCalculator.calculateScore(chatBotResults);
@@ -62,7 +64,7 @@ public class SubmissionHandler {
         }
     }
 
-    private void generateReport(int totalChatBotScore, int totalPlatformScore) {
+    void generateReport(int totalChatBotScore, int totalPlatformScore) {
         reportGenerator.generateSummaryReport(totalChatBotScore, totalPlatformScore);
     }
 }
