@@ -8,6 +8,8 @@ public class ScoreCalculator {
         for (TestResult result : testResults) {
             if (result.isSuccess()) {
                 totalScore += 10;  
+            }else{
+                totalScore -=5;
             }
         }
         return totalScore;

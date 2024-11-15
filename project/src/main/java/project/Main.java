@@ -1,17 +1,18 @@
 package project;
 
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ChatBot bot = new ChatBot("ChatGPT-3.5");
-        ChatBotPlatform platform = new ChatBotPlatform("TestPlatform");
+        
+        ChatBot bot = new ChatBot(1);
+        ChatBotPlatform platform = new ChatBotPlatform();
 
-        // Create an instance of SubmissionHandler
+        platform.addChatBot(1);
+        platform.addChatBot(2);
         SubmissionHandler submissionHandler = new SubmissionHandler();
-
-        // Run all tests for ChatBot and ChatBotPlatform
         submissionHandler.runAllTests(bot, platform);
+        submissionHandler.generateReport(10,1);
+
     }
 }
 

@@ -29,7 +29,7 @@ public class SubmissionHandler {
         generateReport(totalChatBotScore, totalPlatformScore);
     }
 
-    // Method to get a list of ChatBot-specific test strategies
+   
     private List<TestStrategy> getChatBotTests() {
         List<TestStrategy> tests = new ArrayList<>();
         tests.add(new ChatBotNamingTest());
@@ -37,14 +37,13 @@ public class SubmissionHandler {
         return tests;
     }
 
-    // Method to get a list of ChatBotPlatform-specific test strategies
+    
     private List<TestStrategy> getPlatformTests() {
         List<TestStrategy> tests = new ArrayList<>();
-        tests.add(new ChatBotPlatformTest());  // Add your platform-specific tests here
+        tests.add(new ChatBotPlatformTest());  
         return tests;
     }
 
-    // General method to run a list of tests
     private List<TestResult> runTests(Object subject, List<TestStrategy> strategies) {
         List<TestResult> results = new ArrayList<>();
         for (TestStrategy strategy : strategies) {

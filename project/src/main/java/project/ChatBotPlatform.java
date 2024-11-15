@@ -19,16 +19,6 @@ public class ChatBotPlatform {
         return false;  
     }
 
-
-    public String interactWithBot(int botNumber, String message) {
-        if (botNumber >= 0 && botNumber < bots.size()) {
-            return bots.get(botNumber).prompt(message);
-        } else {
-            return "Incorrect Bot Number (" + botNumber + ") Selected. Try again.";
-        }
-    }
-
-    
     public String getChatBotList() {
         StringBuilder sb = new StringBuilder();
         for (ChatBot bot : bots) {
