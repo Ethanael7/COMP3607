@@ -1,29 +1,23 @@
 package project;
 import java.util.ArrayList;
 
-public class ChatBotPlatform {
-    private ArrayList<ChatBot> bots;
 
+import java.util.List;
+
+public class ChatBotPlatform {
+
+    private List<ChatBot> chatBots;
 
     public ChatBotPlatform() {
-        this.bots = new ArrayList<>();
+        chatBots = new ArrayList<>();
     }
 
-    
-    public boolean addChatBot(int LLMCode) {
-        if (!ChatBot.limitReached()) {
-            ChatBot newBot = new ChatBot(LLMCode);
-            bots.add(newBot);
-            return true;
-        }
-        return false;  
+    public void addChatBot(ChatBot bot) {
+        chatBots.add(bot);
     }
 
-    public String getChatBotList() {
-        StringBuilder sb = new StringBuilder();
-        for (ChatBot bot : bots) {
-            sb.append(bot.toString()).append("\n");
-        }
-        return sb.toString();
+    public List<ChatBot> getChatBotList() {
+        return chatBots;
     }
 }
+

@@ -2,6 +2,13 @@ package project;
 public class TestResult {
     private boolean success;
     private String message;
+    private int marks;
+
+    public TestResult(){
+        this.success = false;
+        this.message = "";
+        this.marks = 0;
+    }
 
     public boolean isSuccess() {
         return success;
@@ -17,5 +24,13 @@ public class TestResult {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    int getMarks(){
+        return marks;
+    }
+
+    public void setMarks(int marks){
+        this.marks = marks;
     }
 }

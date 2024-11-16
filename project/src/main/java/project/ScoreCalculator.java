@@ -4,16 +4,14 @@ import java.util.List;
 
 public class ScoreCalculator {
     public int calculateScore(List<TestResult> testResults) {
-        int totalScore = 0;
+        int totalMarks = 0;
         for (TestResult result : testResults) {
-            if (result.isSuccess()) {
-                totalScore += 10;  
-            }else{
-                totalScore -=5;
-            }
+
+            totalMarks += result.getMarks();
         }
-        return totalScore;
+        return totalMarks;
     }
 }
+
 
     

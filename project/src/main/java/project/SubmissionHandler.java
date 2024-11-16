@@ -1,71 +1,56 @@
 package project;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SubmissionHandler {
-    private ChatBotPlatformTest platformTest;
+
+    @SuppressWarnings("unused")
     private ScoreCalculator scoreCalculator;
     private ReportGenerator reportGenerator;
 
     public SubmissionHandler() {
-        this.platformTest = new ChatBotPlatformTest();
         this.scoreCalculator = new ScoreCalculator();
         this.reportGenerator = new ReportGenerator();
     }
 
     public void runAllTests(ChatBot bot, ChatBotPlatform platform) {
         
-        List<TestResult> chatBotResults = runTests(bot, getChatBotTests());
-        printTestResults(chatBotResults);
+        List<TestStrategy> chatBotTests = Arrays.asList(
+            new ChatBotTest(), 
+            new ChatBotGeneratorTest(), 
+            new ChatBotSimulationTest()
+        );
 
-        List<TestResult> platformResults = runTests(platformTest, getPlatformTests());
-        printTestResults(platformResults);
-
-        int totalChatBotScore = scoreCalculator.calculateScore(chatBotResults);
-        System.out.println("Total Score for ChatBot: " + totalChatBotScore);
-
-        int totalPlatformScore = scoreCalculator.calculateScore(platformResults);
-        System.out.println("Total Score for ChatBotPlatform: " + totalPlatformScore);
-
-        generateReport(totalChatBotScore, totalPlatformScore);
-    }
-
-   
-    private List<TestStrategy> getChatBotTests() {
-        List<TestStrategy> tests = new ArrayList<>();
-        tests.add(new ChatBotNamingTest());
-        tests.add(new ChatBotMessageLimitTest());
-        return tests;
-    }
-
-    
-    private List<TestStrategy> getPlatformTests() {
-        List<TestStrategy> tests = new ArrayList<>();
-        tests.add(new ChatBotPlatformTest());  
-        return tests;
-    }
-
-    private List<TestResult> runTests(Object subject, List<TestStrategy> strategies) {
-        List<TestResult> results = new ArrayList<>();
-        for (TestStrategy strategy : strategies) {
-            if (subject instanceof ChatBot) {
-                results.add(strategy.runTest((ChatBot) subject));
-            } else if (subject instanceof ChatBotPlatform) {
-                results.add(strategy.runTest((ChatBot) subject));
-            }
-        }
-        return results;
-    }
-
-    private void printTestResults(List<TestResult> testResults) {
-        for (TestResult result : testResults) {
+        
+        int totalChatBotMarks = 0;
+        for (TestStrategy test : chatBotTests) {
+            TestResult result = test.runTest(bot);  
             System.out.println(result.getMessage());
+            totalChatBotMarks += result.getMarks();
         }
+        System.out.println("Total ChatBot Marks: " + totalChatBotMarks);
+
+        
+        int totalPlatformMarks = 0;
+        TestStrategy platformTestStrategy = new ChatBotPlatformTest();  
+        TestResult platformResult = platformTestStrategy.runTest(bot);  
+        System.out.println(platformResult.getMessage());
+        totalPlatformMarks += platformResult.getMarks();
+
+        System.out.println("Total ChatBotPlatform Marks: " + totalPlatformMarks);
+
+        int totalMark = totalChatBotMarks + totalPlatformMarks;
+
+        System.out.println("Total Marks: " + totalMark);
     }
+
 
     void generateReport(int totalChatBotScore, int totalPlatformScore) {
         reportGenerator.generateSummaryReport(totalChatBotScore, totalPlatformScore);
     }
+
 }
+
+
 
