@@ -10,10 +10,9 @@ public class FileExtractorTest {
     private static final String TEST_ZIP_PATH = "test.zip";
     private static final String OUTPUT_DIRECTORY = "extracted_files";
     
-    // Set up test environment
+    
     @BeforeEach
     void setUp() throws IOException {
-        // Create a sample ZIP file with Java files for testing
         createTestZipFile();
     }
 

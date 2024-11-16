@@ -30,6 +30,8 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>C:\Users\Ethanael\OneDrive\Desktop\COMP3607\project\src\main\java\project</sourceDirectory> <!-- Custom source directory -->
+        
         <plugins>
             <!-- Compiler plugin to ensure the correct version of Java is used -->
             <plugin>
@@ -41,6 +43,7 @@
                     <target>17</target> <!-- Set target version to 17 -->
                 </configuration>
             </plugin>
+
             <!-- Surefire plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

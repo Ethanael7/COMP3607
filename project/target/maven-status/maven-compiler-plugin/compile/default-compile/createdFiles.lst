@@ -1,0 +1,16 @@
+project\ChatBot.class
+project\ChatBotGeneratorTest.class
+project\TestData.class
+project\ChatBotPlatform.class
+project\ChatBotSimulationTest.class
+project\FileExtractor.class
+project\TestSuite.class
+project\ChatBotTest.class
+project\SubmissionHandler.class
+project\TestStrategy.class
+project\ReportGenerator.class
+project\ChatBotPlatformTest.class
+project\ChatBotGenerator.class
+project\Main.class
+project\TestResult.class
+project\ScoreCalculator.class
