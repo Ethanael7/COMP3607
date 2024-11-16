@@ -1,26 +1,22 @@
 package project;
-
 public class Main {
     public static void main(String[] args) {
-        
-        
-        ChatBot bot = new ChatBot(1, "LLaMa");
         ChatBotPlatform platform = new ChatBotPlatform();
 
- 
-        platform.addChatBot(new ChatBot(1, "LLaMa"));
-        platform.addChatBot(new ChatBot(2, "Mistral7B"));
-        platform.addChatBot(new ChatBot(3, "GPT-3"));
+        // Use LLMCode directly to add bots
+        platform.addChatBot(1);  // ChatBot with ID 1
+        platform.addChatBot(2);  // ChatBot with ID 2
+        platform.addChatBot(3);  // ChatBot with ID 3
 
-      
+        // Assuming SubmissionHandler exists and is properly implemented
         SubmissionHandler submissionHandler = new SubmissionHandler();
+        submissionHandler.runAllTests(new ChatBot(1), platform);
 
-        submissionHandler.runAllTests(bot, platform);
-
-        
-
+        submissionHandler.generateFeedbackReport("12345", "John Doe", "Assignment 1", submissionHandler.getFeedback(), submissionHandler.getTotalScore());
     }
 }
+
+
 
 
 

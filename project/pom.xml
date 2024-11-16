@@ -30,7 +30,8 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>C:\Users\Ethanael\OneDrive\Desktop\COMP3607\project\src\main\java\project</sourceDirectory> <!-- Custom source directory -->
+        <!-- Standard source directory for Maven projects -->
+        <sourceDirectory>src/main/java</sourceDirectory>
         
         <plugins>
             <!-- Compiler plugin to ensure the correct version of Java is used -->

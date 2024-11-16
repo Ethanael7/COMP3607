@@ -11,6 +11,8 @@ public class SubmissionHandler {
     int runs = 10;
     int compiles = 5;
     int passes = 10;
+    private String feedback;
+    private int totalMark;
 
     public SubmissionHandler() {
         this.scoreCalculator = new ScoreCalculator();
@@ -43,11 +45,29 @@ public class SubmissionHandler {
 
         System.out.println("Total ChatBotPlatform Marks: " + totalPlatformMarks);
 
-        int totalMark = (totalChatBotMarks + totalPlatformMarks) + runs + compiles + passes;
+        totalMark = (totalChatBotMarks + totalPlatformMarks) + runs + compiles + passes;
 
         System.out.println("Total Marks: " + totalMark);
 
 
+    }
+
+    public void generateFeedbackReport(String studentId, String studentName, String assignmentNumber, String feedback, int totalScore) {
+        System.out.println("\nFeedback for Student:");
+        System.out.println("Student ID: " + studentId);
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Assignment #: " + assignmentNumber);
+        System.out.println("Total Score: " + totalMark);
+        System.out.println("\nFeedback:");
+        System.out.println(feedback);  
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public int getTotalScore() {
+        return totalMark;
     }
 
 
