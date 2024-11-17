@@ -26,7 +26,7 @@ public class TestResult {
         this.message = message;
     }
 
-    int getMarks(){
+    public int getMarks(){
         return marks;
     }
 

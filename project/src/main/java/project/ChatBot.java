@@ -5,15 +5,17 @@ public class ChatBot {
     private int numResponsesGenerated;
     static final int messageLimit = 10;
     static int messageNumber = 0;
+    private int LLMCode;
    
 
 
     public ChatBot() {
-        this.chatBotName = "ChatGPT-3.5";  // Default LLM
+        this.LLMCode = 1;
+        this.chatBotName = ChatBotGenerator.generateChatBotLLM(this.LLMCode);
     }
-
    
     public ChatBot(int LLMCode) {
+        this.LLMCode = LLMCode;
         this.chatBotName = ChatBotGenerator.generateChatBotLLM(LLMCode);
     }
 
@@ -23,7 +25,7 @@ public class ChatBot {
     }
 
     public int getLLMCode(){
-        return this.getLLMCode();
+        return this.LLMCode;
     }
 
     
