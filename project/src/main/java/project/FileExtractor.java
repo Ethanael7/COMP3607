@@ -1,51 +1,37 @@
 package project;
 
 import java.io.*;
-import java.util.zip.ZipFile;
-
+import java.util.zip.*;
 
 public class FileExtractor {
-    public static void extractZip(String zipFilePath, String outputDirectory) throws IOException {
-        File zipFile = new File(zipFilePath);
 
-        if (!zipFile.exists() || !zipFile.isFile()) {
-            throw new IllegalArgumentException("Invalid ZIP file: " + zipFilePath);
+    public void extractZipFile(String zipFilePath, String destDir) throws IOException {
+        File destDirectory = new File(destDir);
+        if (!destDirectory.exists()) {
+            destDirectory.mkdirs();
         }
 
-        File outputDir = new File(outputDirectory);
-        if (!outputDir.exists()) {
-            outputDir.mkdirs();
-        }
-
-        try (ZipFile zip = new ZipFile(zipFile)) {
-            if (zip.stream().count() == 0) {
-                throw new IllegalArgumentException("The ZIP file is empty.");
-            }
-
-            zip.stream().forEach(entry -> {
-                if (!entry.isDirectory()) {
-                    File newFile = new File(outputDirectory + File.separator + entry.getName());
-                    File parentDir = newFile.getParentFile();
-                    if (!parentDir.exists()) {
-                        parentDir.mkdirs();  
-                    }
-
-                    try (InputStream inputStream = zip.getInputStream(entry);
-                         OutputStream outputStream = new FileOutputStream(newFile)) {
-                        inputStream.transferTo(outputStream);
-                        System.out.println("Extracted: " + entry.getName());
-                    } catch (IOException e) {
-                        System.err.println("Error extracting file: " + entry.getName());
-                        e.printStackTrace();
+        try (ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(zipFilePath))) {
+            ZipEntry entry;
+            while ((entry = zipInputStream.getNextEntry()) != null) {
+                File outputFile = new File(destDir, entry.getName());
+                if (entry.isDirectory()) {
+                    outputFile.mkdirs();
+                } else {
+                    try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(outputFile))) {
+                        byte[] buffer = new byte[1024];
+                        int length;
+                        while ((length = zipInputStream.read(buffer)) != -1) {
+                            bufferedOutputStream.write(buffer, 0, length);
+                        }
                     }
                 }
-            });
-        } catch (IOException e) {
-            System.err.println("Error reading ZIP file: " + zipFilePath);
-            throw e; 
+                zipInputStream.closeEntry();
+            }
         }
     }
 }
+
 
 
 

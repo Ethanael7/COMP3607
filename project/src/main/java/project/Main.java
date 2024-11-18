@@ -8,6 +8,9 @@ public class Main {
         platform.addChatBot(2);  
         platform.addChatBot(3);  
 
+        FileProcessor processor = new FileProcessor();
+        processor.processFiles();
+
         SubmissionHandler submissionHandler = new SubmissionHandler();
         submissionHandler.runAllTests(new ChatBot(1), platform);
 

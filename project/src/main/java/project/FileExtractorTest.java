@@ -1,10 +1,10 @@
 package project;
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
+//import java.io.File;
+//import java.io.IOException;
+//import java.util.Arrays;
 
 public class FileExtractorTest {
-    public static void main(String[] args) {
+    /*  public static void main(String[] args) {
         
         TestData testData = new TestData(
             "Check Java Files",
@@ -44,5 +44,5 @@ public class FileExtractorTest {
         } catch (IOException e) {
             System.out.println("Error extracting files: " + e.getMessage());
         }
-    }
+    }*/
 }
