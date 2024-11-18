@@ -1,19 +1,19 @@
 package project;
 import java.util.List;
 
-public class TestData {
-    private String expectedOutput;
-    private List<String> invalidInputs;
-    private List<String> boundaryValues;
+class TestData {
+    private final String testName;
+    private final List<String> invalidInputs;
+    private final List<String> boundaryValues;
 
-    public TestData(String expectedOutput, List<String> invalidInputs, List<String> boundaryValues) {
-        this.expectedOutput = expectedOutput;
+    public TestData(String testName, List<String> invalidInputs, List<String> boundaryValues) {
+        this.testName = testName;
         this.invalidInputs = invalidInputs;
         this.boundaryValues = boundaryValues;
     }
 
-    public String getExpectedOutput() {
-        return expectedOutput;
+    public String getTestName() {
+        return testName;
     }
 
     public List<String> getInvalidInputs() {

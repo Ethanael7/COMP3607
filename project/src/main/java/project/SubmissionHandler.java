@@ -27,6 +27,7 @@ public class SubmissionHandler {
             new ChatBotSimulationTest()
         );
 
+
         
         int totalChatBotMarks = 0;
         for (TestStrategy test : chatBotTests) {
@@ -45,7 +46,7 @@ public class SubmissionHandler {
 
         System.out.println("Total ChatBotPlatform Marks: " + totalPlatformMarks);
 
-        totalMark = (totalChatBotMarks + totalPlatformMarks) + runs + compiles + passes;
+        totalMark = (totalChatBotMarks + totalPlatformMarks);
 
         System.out.println("Total Marks: " + totalMark);
 
