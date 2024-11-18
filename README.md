@@ -39,9 +39,12 @@ Refer to the project wiki page for this topic for further details: https://githu
 Refer to the project wiki page for this topic for further details: https://github.com/Ethanael7/COMP3607/wiki/Design#code-application-snippets
 
 
-Please Utilize the following links before u attempt to run the application 
+Please Utilize the following links before you attempt to run the application :
 # IMPLEMENTATION
 ## Steps to run application
+When running the application, the path of the zip folder must be entered as well as the destinition of the result report in the format 'output_dir'
+User/Marker is to manually type their feedback for student results.
+
 Refer to the project wiki page for this topic for further details: https://github.com/Ethanael7/COMP3607/wiki/Implementation#steps-to-run-application
 
 ## Setup Requirements
