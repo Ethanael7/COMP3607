@@ -42,8 +42,11 @@ Refer to the project wiki page for this topic for further details: https://githu
 Please Utilize the following links before you attempt to run the application :
 # IMPLEMENTATION
 ## Steps to run application
-When running the application, the path of the zip folder must be entered as well as the destinition of the result report in the format 'output_dir'
-User/Marker is to manually type their feedback for student results.
+When running the application, 
+Enter the student ID first.
+Followed by their name.
+The path of the zip folder must be entered. An example format is as follows  C:\Users\username\OneDrive\Desktop\comp3607a2.zip
+The destinition of the result report must be entered as 'output_dir'
 
 Refer to the project wiki page for this topic for further details: https://github.com/Ethanael7/COMP3607/wiki/Implementation#steps-to-run-application
 

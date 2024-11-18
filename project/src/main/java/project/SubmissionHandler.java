@@ -5,13 +5,8 @@ import java.util.List;
 
 public class SubmissionHandler {
 
-    @SuppressWarnings("unused")
     private ScoreCalculator scoreCalculator;
     private ReportGenerator reportGenerator;
-    int runs = 10;
-    int compiles = 5;
-    int passes = 10;
-    private String feedback;
     private int totalMark;
 
     public SubmissionHandler() {
@@ -53,19 +48,32 @@ public class SubmissionHandler {
 
     }
 
-    public void generateFeedbackReport(String studentId, String studentName, String assignmentNumber, String feedback, int totalScore) {
-        System.out.println("\nFeedback for Student:");
+    public String getFeedback() {
+        if(getTotalScore() <= 30){
+             return "Student did not perform well";
+            }else if(getTotalScore() >30 || getTotalScore() <=50){
+                return "Student performed adequately";
+            }else if(getTotalScore() >50 || getTotalScore() <=70){
+                return "Student performed above average";
+            }else{
+                return "Student performed excellently";
+            }
+         }
+ 
+
+
+String feedbacks = getFeedback();
+
+    public void generateFeedbackReport(String studentId, String studentName, String assignmentNumber, String feedbacks, int totalScore) {
+        System.out.println("\n~Report for Student~ ");
         System.out.println("Student ID: " + studentId);
         System.out.println("Student Name: " + studentName);
         System.out.println("Assignment #: " + assignmentNumber);
         System.out.println("Total Score: " + totalMark);
         System.out.println("\nFeedback:");
-        System.out.println(feedback);  
+        System.out.println(feedbacks);  
     }
 
-    public String getFeedback() {
-        return feedback;
-    }
 
     public int getTotalScore() {
         return totalMark;
